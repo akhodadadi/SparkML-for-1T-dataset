@@ -1,7 +1,7 @@
 #! /bin/bash
-echo hello
+echo copying lines...
 
 FN_SRC="/home/arash/datasets/Criteo/day_0"
-FN_DST="/home/arash/datasets/Criteo/day_0_small"
+FN_DST="/home/arash/datasets/Criteo/day_0_med"
 
-head -n 10 $FN_SRC > $FN_DST
+head -n 100000000 $FN_SRC > $FN_DST
