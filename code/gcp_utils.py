@@ -46,12 +46,17 @@ def create_dataproc_cluster(dataproc,projectId,clusterName,region,zone,
                   'diskConfig':diskConfig,
                   'isPreemptible':preemptibleWorkers}
     
+    softwareConfig = {"imageVersion": "preview",
+                      "properties":\
+                          {'spark.executor.memoryOverhead':'4096'}
+                      }
+                #set to 'preview' to use pyspark 2.3
     
     cluster_config={'gceClusterConfig':gceClusterConfig,
                     'masterConfig':masterConfig,
                     'workerConfig':workerConfig,
-                    "softwareConfig": {"imageVersion": "preview"}}
-                    #set to 'preview' to use pyspark 2.3
+                    "softwareConfig": softwareConfig}
+                    
     
     cluster_data={'projectId': projectId,
                   'clusterName': clusterName,
